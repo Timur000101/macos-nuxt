@@ -1,6 +1,3 @@
 <template>
-   <NuxtLayout>
-      <NuxtPage />
-      asdasd
-   </NuxtLayout>
+  <NuxtPage page-key="static" />
 </template>

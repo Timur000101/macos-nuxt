@@ -1,12 +1,7 @@
-<script setup lang="ts">
-definePageMeta({
-    layout: 'auth',
-})
-</script>
-
+<script setup lang="ts"></script>
 
 <template>
-    <div class="asdasd">
-        Hello Autha asdasd
-    </div>
+  <NuxtLayout name="auth">
+    <div class="asdasd">Hello Autha asdasd</div>
+  </NuxtLayout>
 </template>
