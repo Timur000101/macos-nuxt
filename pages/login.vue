@@ -2,6 +2,8 @@
 
 <template>
   <NuxtLayout name="auth">
-    <div class="asdasd">Hello Autha asdasd</div>
+    <div class="asdasd">
+      Hello Autha asdasd
+    </div>
   </NuxtLayout>
 </template>

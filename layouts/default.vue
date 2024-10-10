@@ -5,9 +5,11 @@
     class="h-screen w-screen bg-cover bg-center bg-no-repeat"
     :style="{ backgroundImage: 'url(/images/dark-mode.png)' }"
   >
-    <div class="pointer-events-none relative h-full w-full">
+    <div
+      class="relative h-full w-full overflow-hidden"
+    >
       <status-bar />
-      <NuxtPage />
+      <slot />
       <dock-menu />
     </div>
   </div>

@@ -1,5 +1,3 @@
-import { resolve } from 'node:path'
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
@@ -9,17 +7,24 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
     '@nuxtjs/color-mode',
+    'nuxt-svgo',
   ],
+  svgo: {
+    svgo: false,
+    autoImportPath: './assets/icons/',
+    componentPrefix: 'i',
+  },
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config',
   },
-  alias: {
-    '@': resolve(__dirname, './'),
-  },
   image: {
     format: ['webp', 'png'],
     dir: 'assets/images',
+  },
+  components: {
+    global: true,
+    dirs: ['~/components'],
   },
   eslint: {
     checker: true,

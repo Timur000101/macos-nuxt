@@ -21,6 +21,8 @@ export default <Partial<Config>>{
         // 'grid-dark': '#000000',
         'header-text-light': '#00000085',
         // 'header-text-dark': '#FFFFFF85',
+        'quaternary-light': '#00000010',
+        'quaternary-dark': '#FFFFFF10',
       },
     },
   },

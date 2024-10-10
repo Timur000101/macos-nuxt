@@ -3,7 +3,7 @@
   "editor.formatOnPaste": false,
   "editor.formatOnType": false,
   "scss.lint.unknownAtRules": "ignore",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "eslint.format.enable": true,
   "prettier.useEditorConfig": false
 }
