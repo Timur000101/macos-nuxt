@@ -8,7 +8,13 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/color-mode',
     'nuxt-svgo',
+    '@vueuse/nuxt',
+    'shadcn-nuxt',
   ],
+  shadcn: {
+    prefix: 's',
+    componentDir: './components/ui',
+  },
   svgo: {
     svgo: false,
     autoImportPath: './assets/icons/',
