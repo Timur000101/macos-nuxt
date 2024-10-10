@@ -8,5 +8,6 @@ export default withNuxt(
       quotes: 'single',
       semi: false,
     },
+    ignores: ['node_modules/**', 'components/ui/**'],
   }),
 )
