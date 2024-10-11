@@ -11,27 +11,28 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from '@/components/ui/menubar'
+
+import menubarData from '~/static/status-bar-menu'
 </script>
 
 <template>
-  <div class="absolute top-0 w-full bg-slate-700/20 px-3">
+  <div class="absolute top-0 w-full bg-quaternary px-3">
     <Menubar class="bg-transparent border-none h-6 p-0">
-      <MenubarMenu>
+      <MenubarMenu v-for="menu in menubarData" :key="menu.label">
         <MenubarTrigger class="h-6 text-white data-[state=open]:text-white focus:text-white focus:bg-white/25 data-[state=open]:bg-white/25">
-          File
+          {{ menu.label }}
         </MenubarTrigger>
-        <MenubarContent class="border-[0.5px]" :align-offset="0" :side-offset="0">
-          <MenubarItem class="h-[22px]">
-            New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-          </MenubarItem>
-          <MenubarItem class="h-[22px]">
-            New Window <MenubarShortcut>⌘N</MenubarShortcut>
-          </MenubarItem>
-          <MenubarItem class="h-[22px]" disabled>
-            New Incognito Window
-          </MenubarItem>
-          <MenubarSeparator />
-          <MenubarSub>
+        <MenubarContent class="border-[0.5px] bg-content-bg shadow-black/16 shadow-md" :align-offset="0" :side-offset="0">
+          <template v-for="item in menu.submenu" :key="item.label">
+            <MenubarItem v-if="!item.type" class="h-[22px]">
+              {{ item.label }}
+              <MenubarShortcut v-if="item.accelerator">
+                {{ item.accelerator }}
+              </MenubarShortcut>
+            </MenubarItem>
+            <MenubarSeparator v-else />
+          </template>
+          <!-- <MenubarSub>
             <MenubarSubTrigger class="h-[22px]">
               Share
             </MenubarSubTrigger>
@@ -50,7 +51,7 @@ import {
           <MenubarSeparator />
           <MenubarItem class="h-[22px]">
             Print... <MenubarShortcut>⌘P</MenubarShortcut>
-          </MenubarItem>
+          </MenubarItem> -->
         </MenubarContent>
       </MenubarMenu>
     </Menubar>
