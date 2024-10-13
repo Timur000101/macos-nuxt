@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
+  experimental: {
+    renderJsonPayloads: false,
+  },
   modules: [
     '@nuxt/eslint',
     '@nuxtjs/tailwindcss',
@@ -10,7 +13,11 @@ export default defineNuxtConfig({
     'nuxt-svgo',
     '@vueuse/nuxt',
     'shadcn-nuxt',
+    '@pinia/nuxt',
   ],
+  pinia: {
+    storesDirs: ['./stores/**'],
+  },
   shadcn: {
     prefix: 's',
     componentDir: './components/ui',

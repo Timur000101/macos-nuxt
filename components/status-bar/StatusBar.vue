@@ -12,48 +12,47 @@ import {
   MenubarTrigger,
 } from '@/components/ui/menubar'
 
-import menubarData from '~/static/status-bar-menu'
+const statusBarMenu = useStatusBarMenu()
 </script>
 
 <template>
-  <div class="absolute top-0 w-full bg-quaternary px-3">
-    <Menubar class="bg-transparent border-none h-6 p-0">
-      <MenubarMenu v-for="menu in menubarData" :key="menu.label">
-        <MenubarTrigger class="h-6 text-white data-[state=open]:text-white focus:text-white focus:bg-white/25 data-[state=open]:bg-white/25">
-          {{ menu.label }}
-        </MenubarTrigger>
-        <MenubarContent class="border-[0.5px] bg-content-bg shadow-black/16 shadow-md" :align-offset="0" :side-offset="0">
-          <template v-for="item in menu.submenu" :key="item.label">
-            <MenubarItem v-if="!item.type" class="h-[22px]">
-              {{ item.label }}
-              <MenubarShortcut v-if="item.accelerator">
-                {{ item.accelerator }}
-              </MenubarShortcut>
-            </MenubarItem>
-            <MenubarSeparator v-else />
-          </template>
-          <!-- <MenubarSub>
-            <MenubarSubTrigger class="h-[22px]">
-              Share
-            </MenubarSubTrigger>
-            <MenubarSubContent>
-              <MenubarItem class="h-[22px]">
-                Email link
+  <div class="flex justify-between absolute top-0 w-full bg-quaternary px-3">
+    <div class="flex gap-4">
+      <i-shared-apple-white filled :font-controlled="false" class="w-6 h-6" />
+      <div class="text-white font-semibold">
+        Finder
+      </div>
+      <Menubar>
+        <MenubarMenu v-for="menu in statusBarMenu.menuData" :key="menu.label">
+          <MenubarTrigger>
+            {{ menu.label }}
+          </MenubarTrigger>
+          <MenubarContent :align-offset="0" :side-offset="0">
+            <template v-for="item in menu.submenu" :key="item.label">
+              <MenubarItem v-if="item.type === 'item'" @select="statusBarMenu.triggerAction(item.label!)">
+                {{ item.label }}
+                <MenubarShortcut v-if="item.accelerator">
+                  {{ item.accelerator }}
+                </MenubarShortcut>
               </MenubarItem>
-              <MenubarItem class="h-[22px]">
-                Messages
-              </MenubarItem>
-              <MenubarItem class="h-[22px]">
-                Notes
-              </MenubarItem>
-            </MenubarSubContent>
-          </MenubarSub>
-          <MenubarSeparator />
-          <MenubarItem class="h-[22px]">
-            Print... <MenubarShortcut>⌘P</MenubarShortcut>
-          </MenubarItem> -->
-        </MenubarContent>
-      </MenubarMenu>
-    </Menubar>
+              <MenubarSeparator v-if="item.type === 'separator'" />
+              <MenubarSub v-if="item.type === 'submenu'">
+                <MenubarSubTrigger class="h-[22px]">
+                  {{ item.label }}
+                </MenubarSubTrigger>
+                <MenubarSubContent>
+                  <template v-for="subItem in item.submenu" :key="subItem.label">
+                    <MenubarItem v-if="subItem.type === 'item'" class="h-[22px]">
+                      {{ subItem.label }}
+                    </MenubarItem>
+                    <MenubarSeparator v-if="subItem.type === 'separator'" />
+                  </template>
+                </MenubarSubContent>
+              </MenubarSub>
+            </template>
+          </MenubarContent>
+        </MenubarMenu>
+      </Menubar>
+    </div>
   </div>
 </template>
