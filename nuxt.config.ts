@@ -49,4 +49,5 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
   },
+  // ignore: ['pages/**/']
 })

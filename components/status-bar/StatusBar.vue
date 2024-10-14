@@ -11,6 +11,7 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from '@/components/ui/menubar'
+import MenuControls from './MenuControls.vue'
 
 const statusBarMenu = useStatusBarMenu()
 </script>
@@ -54,5 +55,7 @@ const statusBarMenu = useStatusBarMenu()
         </MenubarMenu>
       </Menubar>
     </div>
+
+    <MenuControls />
   </div>
 </template>
