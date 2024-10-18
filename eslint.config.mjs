@@ -7,6 +7,9 @@ export default withNuxt(
       quotes: 'single',
       semi: false,
     },
+    rules: {
+      'no-console': 'warn',
+    },
     ignores: ['node_modules/**', 'components/ui/**'],
   }),
 )

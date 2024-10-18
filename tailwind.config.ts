@@ -91,6 +91,9 @@ module.exports = {
         'collapsible-down': 'collapsible-down 0.2s ease-in-out',
         'collapsible-up': 'collapsible-up 0.2s ease-in-out',
       },
+      boxShadow: {
+        widget: '0 5px 10px rgba(0, 0, 0, 0.16)',
+      },
     },
   },
   plugins: [animate],
