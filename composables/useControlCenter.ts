@@ -10,10 +10,7 @@ export function useControlCenter() {
   watch(
     () => route.hash,
     (val) => {
-      if (val === POPUP.CONTROL_CENTER)
-        isOpen.value = true
-      else
-        isOpen.value = false
+      isOpen.value = (val === POPUP.CONTROL_CENTER)
     },
     {
       immediate: true,
@@ -22,11 +19,9 @@ export function useControlCenter() {
 
   function toggle() {
     if (isOpen.value) {
-      // Clear the hash when closing the control center
       router.replace({ hash: '' })
     }
     else {
-      // Set the hash to open the control center
       router.replace({ hash: POPUP.CONTROL_CENTER })
     }
   }

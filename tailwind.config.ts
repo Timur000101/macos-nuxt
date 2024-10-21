@@ -3,9 +3,8 @@ import animate from 'tailwindcss-animate'
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class'],
-  safelist: ['dark'],
+  safelist: [''],
   prefix: '',
-
   theme: {
     container: {
       center: true,
