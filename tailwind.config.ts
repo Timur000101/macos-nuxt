@@ -59,6 +59,7 @@ module.exports = {
         'placeholder-text': 'var(--placeholder-text)',
         'secondary': 'var(--secondary)',
         'text': 'var(--text)',
+        'menu-bg': 'var(--menu-bg)',
       },
       borderRadius: {
         xl: 'calc(var(--radius) + 4px)',
