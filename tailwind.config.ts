@@ -44,6 +44,7 @@ module.exports = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        'card-bg': 'var(--card-bg)',
         'quaternary': 'var(--quaternary)',
         'content-bg': 'var(--content-bg)',
         'control-accent': 'var(--control-accent)',
