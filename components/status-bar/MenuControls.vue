@@ -9,16 +9,16 @@ const dateNow = useDateFormat(useNow(), 'HH:mm a').value.toUpperCase()
 
 <template>
   <div class="h-6 flex gap-[10px]">
-    <IconButton v-slot="props">
+    <IconButton v-slot="props" class="hover:bg-[#FFFFFF26] rounded-sm">
       <i-shared-sound-off v-bind="props" />
     </IconButton>
-    <IconButton v-slot="props">
+    <IconButton v-slot="props" class="hover:bg-[#FFFFFF26] rounded-sm">
       <i-shared-user v-bind="props" />
     </IconButton>
-    <IconButton v-slot="props" @click="switchTheme">
+    <IconButton v-slot="props" class="hover:bg-[#FFFFFF26] rounded-sm" @click="switchTheme">
       <i-shared-battery v-bind="props" />
     </IconButton>
-    <IconButton v-slot="props" :active="isOpen" @click="toggle">
+    <IconButton v-slot="props" :active="isOpen" class="hover:bg-[#FFFFFF26] rounded-sm" @click="toggle">
       <i-shared-control v-bind="props" />
     </IconButton>
 
