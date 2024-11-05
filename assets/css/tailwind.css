@@ -51,6 +51,7 @@
     --quaternary: #00000010;
     --separator: #00000010;
     --text: #000000;
+    --menu-bg: #F4F5F595; /* TODO: Пересмотреть позже если будет встрачиваться часто */
   }
 
   .dark {
@@ -99,6 +100,7 @@
     --quaternary: #FFFFFF10;  
     --separator: #FFFFFF10;
     --text: #FFFFFF;
+    --menu-bg: #32323295;
   }
 }
 

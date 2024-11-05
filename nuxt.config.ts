@@ -15,6 +15,16 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     '@pinia/nuxt',
   ],
+  colorMode: {
+    preference: 'auto',
+    fallback: 'light',
+    hid: 'nuxt-color-mode-script',
+    globalName: '__NUXT_COLOR_MODE__',
+    classPrefix: '',
+    classSuffix: '',
+    storage: 'localStorage',
+    storageKey: 'color-mode',
+  },
   pinia: {
     storesDirs: ['./stores/**'],
   },
