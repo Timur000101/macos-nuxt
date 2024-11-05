@@ -1,7 +1,7 @@
 import { useRoute, useRouter } from 'vue-router'
 import { POPUP } from '~/types/popup'
 
-export function useControlCenter() {
+export function useControlCenterPanel() {
   const isOpen = ref(false)
 
   const route = useRoute()

@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { useControlCenterPanel } from '~/composables/useControlCenter'
 import { IconButton } from '../ui'
 
-const { isOpen, toggle } = useControlCenter()
+const { isOpen, toggle } = useControlCenterPanel()
 const dateNow = useDateFormat(useNow(), 'HH:mm a').value.toUpperCase()
 </script>
 
