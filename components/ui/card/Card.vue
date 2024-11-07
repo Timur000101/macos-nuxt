@@ -9,7 +9,7 @@ const props = defineProps<{
 
 <template>
     <div :class="cn(`card shadow-widget 
-    bg-card-bg border-[0.5px] border-content-bg
+        bg-card-bg border-[0.5px] border-content-bg
         rounded-[10px]`, props.class)"
     >
         <slot />

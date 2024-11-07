@@ -2,7 +2,6 @@
 import { useRouter } from 'vue-router'
 import { ActionCell } from '~/components/shared'
 import { useControlCenter } from '~/stores/control-center/control-center'
-import { Card } from '../ui'
 
 const router = useRouter()
 const controlCenterStore = useControlCenter()
@@ -23,7 +22,7 @@ onClickOutside(controlCenterRef, () => {
       backdrop-blur-[5px] shadow-black/16 shadow-md p-[10px]"
     >
       <div class="flex gap-[10px] mb-[10px]">
-        <Card class="pl-2 py-2.5">
+        <SCard class="pl-2 py-2.5">
           <ActionCell
             v-for="connection in controlCenterStore.connections"
             :key="connection.title"
@@ -40,36 +39,44 @@ onClickOutside(controlCenterRef, () => {
               {{ connection.description }}
             </template>
           </ActionCell>
-
-          <!--          <ActionCell> -->
-          <!--            <template #iconButton="iconButtonSlots"> -->
-          <!--              <i-shared-wi-fi v-bind="iconButtonSlots" class="w-full h-full" /> -->
-          <!--            </template> -->
-          <!--            <template #title> -->
-          <!--              Bluetooth -->
-          <!--            </template> -->
-          <!--            <template #description> -->
-          <!--              Off -->
-          <!--            </template> -->
-          <!--          </ActionCell> -->
-          <!--          <ActionCell active> -->
-          <!--            <template #iconButton="iconButtonSlots"> -->
-          <!--              <i-shared-wi-fi v-bind="iconButtonSlots" class="w-full h-full" /> -->
-          <!--            </template> -->
-          <!--            <template #title> -->
-          <!--              AirDrop -->
-          <!--            </template> -->
-          <!--            <template #description> -->
-          <!--              Off -->
-          <!--            </template> -->
-          <!--          </ActionCell> -->
-        </Card>
-        <Card />
+        </SCard>
+        <div class="grid grid-rows-2 grid-cols-2 w-full gap-2.5">
+          <SCard class="px-2 py-2 col-span-2">
+            <div class="grid grid-cols-[28px_1fr] items-center gap-2 h-full">
+              <SIconButton
+                v-slot="slotProps"
+                class="w-7 h-7 rounded-full flex items-center justify-center bg-gray-400 dark:bg-purple-400 text-white"
+                @click="() => $colorMode.preference = $colorMode.preference === 'dark' ? 'light' : 'dark'"
+              >
+                <i-shared-moon v-bind="slotProps" />
+              </SIconButton>
+              <p class="text-[13px] font-semibold text">
+                {{ $colorMode.preference === 'dark' ? 'Light mode' : 'Dark mode' }}
+              </p>
+            </div>
+          </SCard>
+          <SCard>
+            <SIconButton v-slot="slotProps" class="flex flex-col items-center text-secondary">
+              <i-shared-keyboard-brightness v-bind="slotProps" />
+              <p class="text-[10px] leading-[13px] text-text">
+                Keyboard Brightness
+              </p>
+            </SIconButton>
+          </SCard>
+          <SCard>
+            <SIconButton v-slot="slotProps" class="flex flex-col items-center text-secondary">
+              <i-shared-keyboard-brightness v-bind="slotProps" />
+              <p class="text-[10px] leading-[13px] text-text">
+                Keyboard Brightness
+              </p>
+            </SIconButton>
+          </SCard>
+        </div>
       </div>
       <div class="flex flex-col gap-[10px]">
-        <Card class="w-full h-[64px]" />
-        <Card class="w-full h-[64px]" />
-        <Card class="w-full h-[64px]" />
+        <SCard class="w-full h-[64px]" />
+        <SCard class="w-full h-[64px]" />
+        <SCard class="w-full h-[64px]" />
       </div>
     </div>
   </Teleport>

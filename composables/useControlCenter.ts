@@ -17,12 +17,12 @@ export function useControlCenterPanel() {
     },
   )
 
-  function toggle() {
+  async function toggle() {
     if (isOpen.value) {
-      router.replace({ hash: '' })
+      await router.replace({ hash: '' })
     }
     else {
-      router.replace({ hash: POPUP.CONTROL_CENTER })
+      await router.replace({ hash: POPUP.CONTROL_CENTER })
     }
   }
 

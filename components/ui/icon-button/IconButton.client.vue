@@ -2,17 +2,10 @@
 import { cn } from '~/lib/utils';
 import type { HTMLAttributes } from 'vue';
 
-const slot = ref(null)
-
 const props = defineProps<{
     active?: boolean
     class?: HTMLAttributes['class']
 }>()
-
-
-onMounted(() => {
-    console.log(slot.value)
-})
 </script>
 
 <template>
